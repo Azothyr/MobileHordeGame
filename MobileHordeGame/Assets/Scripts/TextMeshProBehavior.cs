@@ -22,5 +22,10 @@ public class TextMeshProBehavior : MonoBehaviour
     public void UpdateLabel(IntData obj)
     {
         label.text = obj.value.ToString(CultureInfo.InvariantCulture);
+    }    
+    
+    public void UpdateLabel(DoubleData obj)
+    {
+        label.text = obj.value.ToString(CultureInfo.InvariantCulture);
     }
 }

@@ -1,0 +1,17 @@
+using UnityEngine;
+
+[CreateAssetMenu]
+public class DoubleData : ScriptableObject
+{
+    public double value;
+
+    public void SetValue(double num)
+    {
+        value = num;
+    }
+    
+    public void UpdateValue(double num)
+    {
+        value += num;
+    }
+}
