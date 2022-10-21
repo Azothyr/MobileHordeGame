@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TransformBehavior : MonoBehaviour
@@ -7,8 +6,7 @@ public class TransformBehavior : MonoBehaviour
     public Vector3Data v3Data;
     public BoolData canRun;
     private WaitForFixedUpdate wffu = new WaitForFixedUpdate();
-
-
+    
     public void SetPosition()
     {
         SetV3Value();

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (fileName = "Vector3DataList", menuName = "Data/Vector3DataList")]
 public class Vector3DataList : ScriptableObject
 {
     public List<Vector3Data> vector3DList;

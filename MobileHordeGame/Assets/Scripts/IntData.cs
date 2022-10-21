@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (fileName = "IntData", menuName = "Data/IntData")]
 public class IntData : ScriptableObject
 {
     public int value;

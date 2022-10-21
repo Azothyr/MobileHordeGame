@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (fileName = "DoubleData", menuName = "Data/DoubleData")]
 public class DoubleData : ScriptableObject
 {
     public double value;

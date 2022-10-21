@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (fileName = "CharacterData", menuName = "Data/CharacterData")]
+
 public class CharacterData : ScriptableObject
 { 
     public float health, speed, damage;

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu (fileName = "ID", menuName = "IDs/ID")]
 public class ColorID : ID
 {
     public Color value = Color.red;
