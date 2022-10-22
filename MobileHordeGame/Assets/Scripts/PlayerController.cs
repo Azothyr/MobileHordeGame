@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,40 +5,60 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public CharacterData playerData;
-    private Rigidbody2D playerRB;
-    private PlayerInput playerInput;
-    private PlayerInputActions playerInputActions;
+    public Rigidbody2D playerRB;
 
-    public BoolData canRun;
+
+    private InputActions inputActions;
+    private Vector2 inputMoveVector;
+    private Vector2 inputAimVector;
+    
     private WaitForFixedUpdate wffuObj;
 
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
-
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-        playerInputActions.Player.Move.performed += startMove;
+        
+        inputActions = new InputActions();
+        
+        inputActions.Player.Enable();
+        
+        inputActions.Player.Move.performed += StartMove;
+        inputActions.Player.Move.canceled += StopMove;
+        
+        inputActions.Player.Aim.performed += StartFiring;
+        inputActions.Player.Aim.canceled += StopFiring;
     }
 
-    private void FixedUpdate()
+    private void StartFiring(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
-        playerRB.MovePosition(playerRB.position + inputVector * (playerData.speed * Time.deltaTime));
+        inputAimVector = context.ReadValue<Vector2>();
+        playerData.aimDirection.SetValue(inputAimVector.x,inputAimVector.y);
+        playerData.isFiring = true;
     }
 
-    public void startMove(InputAction.CallbackContext context)
+    private void StopFiring(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
+        playerData.aimDirection.SetValue(0,0);
+        playerData.isFiring = false;
+    } 
+    
+    private void StartMove(InputAction.CallbackContext context)
+    {
+        inputMoveVector = context.ReadValue<Vector2>();
+        StartCoroutine(Move());
+    }
+
+    private void StopMove(InputAction.CallbackContext context)
+    {
+        inputMoveVector = context.ReadValue<Vector2>();
+        StopCoroutine(Move());
     }
 
     private IEnumerator Move()
     {
-        while (canRun.value)
+        while (playerData.canRun.value)
         {
-            Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
-            playerRB.MovePosition(playerRB.position + inputVector * (playerData.speed * Time.deltaTime));
+            playerRB.MovePosition(playerRB.position + inputMoveVector * (playerData.speed * Time.deltaTime));
             yield return wffuObj;
         }
     }

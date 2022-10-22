@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputActions",
+    "name": "InputActions",
     "maps": [
         {
             "name": "Player",
@@ -39,7 +39,7 @@
                 {
                     "name": "",
                     "id": "7493accf-ad89-4871-bce3-91a348dd3aec",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

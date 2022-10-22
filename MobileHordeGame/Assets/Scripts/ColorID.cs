@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu (fileName = "ID", menuName = "IDs/ID")]
+[CreateAssetMenu (fileName = "ColorID", menuName = "IDs/ColorID")]
 public class ColorID : ID
 {
     public Color value = Color.red;
