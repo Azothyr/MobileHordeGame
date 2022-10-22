@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public WeaponData weaponData;
+    public AmmoData AmmoData;
 /*    
     public BoolData isFiring;
     
@@ -46,5 +48,5 @@ public class WeaponController : MonoBehaviour
         }
     }
     
-*/    
+*/
 }
