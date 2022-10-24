@@ -46,7 +46,7 @@ public class WeaponController : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        while (rangeCheck)
+        while (rangeCheck == true)
         {
             if (canFire)
             {
@@ -64,9 +64,8 @@ public class WeaponController : MonoBehaviour
                     fireTimer -= Time.fixedDeltaTime;
                 } 
             }
+            yield return wffuObj;
         }
-        
-        yield return wffuObj;
     }
 /*    
     public AmmoController[] ammoPrefab;
