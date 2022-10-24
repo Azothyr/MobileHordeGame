@@ -20,3 +20,5 @@ MonoBehaviour:
   maxLifeTime: 3
   fireRate: 1
   fireTimer: 1
+  attackDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}
+  playerLocation: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}

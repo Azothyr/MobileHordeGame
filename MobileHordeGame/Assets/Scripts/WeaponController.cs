@@ -22,7 +22,7 @@ public class WeaponController : MonoBehaviour
     {
         wffuObj = new WaitForFixedUpdate();
         rangeCheck = weaponData.rangedWeaponCheck;
-        canFire = weaponData.isFiring;
+        canFire = weaponData.isFiring.value;
         obj = weaponData.prefab;
         fireRate = weaponData.ammoData.fireRate;
         fireTimer = weaponData.ammoData.fireTimer;
@@ -64,6 +64,7 @@ public class WeaponController : MonoBehaviour
                     fireTimer -= Time.fixedDeltaTime;
                 } 
             }
+            canFire = weaponData.isFiring.value;
             yield return wffuObj;
         }
     }
