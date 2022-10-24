@@ -33,13 +33,13 @@ public class PlayerController : MonoBehaviour
     {
         inputAimVector = context.ReadValue<Vector2>();
         playerData.aimDirection.SetValue(inputAimVector.x,inputAimVector.y);
-        playerData.isFiring = true;
+        playerData.isFiring.value = true;
     }
 
     private void StopFiring(InputAction.CallbackContext context)
     {
         playerData.aimDirection.SetValue(0,0);
-        playerData.isFiring = false;
+        playerData.isFiring.value = false;
     } 
     
     private void StartMove(InputAction.CallbackContext context)

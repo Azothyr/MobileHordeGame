@@ -1,12 +1,74 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
     public WeaponData weaponData;
-    public AmmoData AmmoData;
-/*    
-    public BoolData isFiring;
+
+    private bool rangeCheck;
+    private bool canFire;
+
+    private GameObject obj;
+
+    private float fireRate;
+    private float fireTimer;
+    private float currentLifeTime;
+    private float maxLifeTime;
     
+    private WaitForFixedUpdate wffuObj;
+
+    private void Start()
+    {
+        wffuObj = new WaitForFixedUpdate();
+        rangeCheck = weaponData.rangedWeaponCheck;
+        canFire = weaponData.isFiring;
+        obj = weaponData.prefab;
+        fireRate = weaponData.ammoData.fireRate;
+        fireTimer = weaponData.ammoData.fireTimer;
+        currentLifeTime = weaponData.ammoData.currentLifeTime;
+        maxLifeTime = weaponData.ammoData.maxLifeTime;
+    }
+
+    void Awake()
+    {
+
+    }
+
+    public void StartAttackCheck()
+    {
+        StartCoroutine(Attack());
+    }
+    public void StopAttackCheck()
+    {
+        StopCoroutine(Attack());
+    }
+
+    private IEnumerator Attack()
+    {
+        while (rangeCheck)
+        {
+            if (canFire)
+            {
+                fireTimer -= Time.fixedDeltaTime;
+                if (fireTimer <= 0)
+                {
+                    fireTimer = fireRate;
+                    Instantiate(obj, transform.position, transform.rotation);
+                }
+            }
+            else if (!canFire)
+            {
+                if (fireTimer > 0)
+                {
+                    fireTimer -= Time.fixedDeltaTime;
+                } 
+            }
+        }
+        
+        yield return wffuObj;
+    }
+/*    
     public AmmoController[] ammoPrefab;
 
     public CharacterData playerData;

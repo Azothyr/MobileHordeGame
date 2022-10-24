@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdc0af2fc1d74244a8c8bad032a5a2f1, type: 3}
-  m_Name: FireDown
+  m_Name: EnemyFireCheck
   m_EditorClassIdentifier: 
   value: 0

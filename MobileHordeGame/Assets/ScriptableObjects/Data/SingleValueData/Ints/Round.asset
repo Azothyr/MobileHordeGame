@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6697d8c95b535c94ab35df8f27f89243, type: 3}
-  m_Name: AimVector
+  m_Script: {fileID: 11500000, guid: d374f5daae17c6249a07ec2ca9a41481, type: 3}
+  m_Name: Round
   m_EditorClassIdentifier: 
-  value: {x: 0, y: 0}
+  value: 0

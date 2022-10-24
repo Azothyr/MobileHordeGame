@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8ddb3b8ce2c384e873bed11993875a, type: 3}
-  m_Name: DefaultWeapon
+  m_Script: {fileID: 11500000, guid: 4e483bb87adcbbb4eb9feb995b75e9ea, type: 3}
+  m_Name: DefaultAmmo
   m_EditorClassIdentifier: 
-  name: Test
   prefab: {fileID: 237891397973152735, guid: fb91be28a66ccf9409cb21613b1f5da2, type: 3}
-  rangedWeaponCheck: 1
-  isFiring: {fileID: 11400000, guid: ea8fa9046b8dc934da8adab32ab8472f, type: 2}
-  ammoData: {fileID: 11400000, guid: 6b2b465ccf3f17949999b52a4f992234, type: 2}
+  rangedAmmo: 1
+  speed: 1
+  damage: 1
+  currentLifeTime: 0
+  maxLifeTime: 3
+  fireRate: 1
+  fireTimer: 1

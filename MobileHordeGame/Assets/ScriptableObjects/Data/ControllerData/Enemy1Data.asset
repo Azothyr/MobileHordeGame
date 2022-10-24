@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fdc0a6c26ea674882f9d0481224fee, type: 3}
   m_Name: Enemy1Data
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  speed: {fileID: 0}
-  damage: {fileID: 0}
+  name: Enemy1
+  id: {fileID: 0}
+  health: 1
+  speed: 1
+  damage: 1
+  canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
+  isFiring: {fileID: 11400000, guid: 80e7038b91c95a8489e691d31b497857, type: 2}
+  aimDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}
+  v3Position: {fileID: 0}

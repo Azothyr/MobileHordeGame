@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fdc0a6c26ea674882f9d0481224fee, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  name: 
+  id: {fileID: 0}
   health: 1
   speed: 10
   damage: 1
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
-  isFiring: 0
+  isFiring: {fileID: 11400000, guid: ea8fa9046b8dc934da8adab32ab8472f, type: 2}
   aimDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}
   v3Position: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}
