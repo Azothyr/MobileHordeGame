@@ -22,15 +22,15 @@ public class AmmoController : MonoBehaviour
         maxLifeTime = weaponData.ammoData.maxLifeTime;
         currentLifeTime = maxLifeTime;
         speed = weaponData.ammoData.speed;
-        
+        StartAmmoCheck();
     }
     
-    public void StartAmmo()
+    public void StartAmmoCheck()
     {
         StartCoroutine(Ammo());
     }
     
-    public void StopAmmo()
+    public void StopAmmoCheck()
     {
         StopCoroutine(Ammo());
     }
@@ -41,6 +41,7 @@ public class AmmoController : MonoBehaviour
             
         while (isFiring)
         {
+            Debug.Log(fireDirection);
             transform.Translate(fireDirection * (speed * Time.deltaTime));
             currentLifeTime -= Time.deltaTime;
             if (currentLifeTime <= 0)
