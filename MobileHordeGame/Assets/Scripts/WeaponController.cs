@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -9,30 +10,21 @@ public class WeaponController : MonoBehaviour
     private bool rangeCheck;
     private bool canFire;
 
-    private GameObject obj;
+    private GameObject objPrefab;
 
     private float fireRate;
     private float fireTimer;
-    private float currentLifeTime;
-    private float maxLifeTime;
-    
+
     private WaitForFixedUpdate wffuObj;
 
-    private void Start()
+    private void Awake()
     {
         wffuObj = new WaitForFixedUpdate();
         rangeCheck = weaponData.rangedWeaponCheck;
         canFire = weaponData.isFiring.value;
-        obj = weaponData.prefab;
+        objPrefab = weaponData.prefab;
         fireRate = weaponData.ammoData.fireRate;
         fireTimer = weaponData.ammoData.fireTimer;
-        currentLifeTime = weaponData.ammoData.currentLifeTime;
-        maxLifeTime = weaponData.ammoData.maxLifeTime;
-    }
-
-    void Awake()
-    {
-
     }
 
     public void StartAttackCheck()
@@ -46,7 +38,7 @@ public class WeaponController : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        while (rangeCheck == true)
+        while (rangeCheck)
         {
             if (canFire)
             {
@@ -54,7 +46,7 @@ public class WeaponController : MonoBehaviour
                 if (fireTimer <= 0)
                 {
                     fireTimer = fireRate;
-                    Instantiate(obj, transform.position, transform.rotation);
+                    Instantiate(objPrefab, transform.position, quaternion.identity);
                 }
             }
             else if (!canFire)
@@ -67,48 +59,27 @@ public class WeaponController : MonoBehaviour
             canFire = weaponData.isFiring.value;
             yield return wffuObj;
         }
-    }
-/*    
-    public AmmoController[] ammoPrefab;
-
-    public CharacterData playerData;
-    private float shotCounter;
-    private float ammoSpd;
-    private float reload;
-    
-
-    public Transform fireSpawn;
-
-    void Start()
-    {
-        reload = playerData.reloadTime;
-        
-    }
-
-    void Update()
-    {
-
-        if (isFiring)
+        /*
+        while (!rangeCheck)
         {
-            //if we are firing the fire rate counter will count down till next available shot
-            shotCounter -= Time.fixedDeltaTime;
-            if (shotCounter <= 0)
+            if (canFire)
             {
-                shotCounter = reload;
-                //throw a random ammo out
-                int index = Random.Range(0, ((ICollection) ammoPrefab).Count);
-                Instantiate(ammoPrefab[index], fireSpawn.position, fireSpawn.rotation);
+                fireTimer -= Time.fixedDeltaTime;
+                if (fireTimer <= 0)
+                {
+                    fireTimer = fireRate;
+                }
             }
-        }
-        //setting fire rate to be ready to fire if we haven't fired since FR hit 0
-        else if(!isFiring)
-        {
-            if (shotCounter > 0)
+            else if (!canFire)
             {
-                shotCounter -= Time.fixedDeltaTime;
+                if (fireTimer > 0)
+                {
+                    fireTimer -= Time.fixedDeltaTime;
+                } 
             }
+            canFire = weaponData.isFiring.value;
+            yield return wffuObj;
         }
+        */
     }
-    
-*/
 }

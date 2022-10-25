@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class AmmoController : MonoBehaviour
@@ -6,30 +7,54 @@ public class AmmoController : MonoBehaviour
     public WeaponData weaponData;
 
     private bool isFiring;
+    private float currentLifeTime;
+    private float maxLifeTime;
+    private float speed;
+    private Vector2 inputFireDirection;
+    private Vector2 fireDirection;
+    
+    private WaitForFixedUpdate wffuObj;
 
     private void Awake()
     {
+        wffuObj = new WaitForFixedUpdate();
         isFiring = weaponData.isFiring;
+        maxLifeTime = weaponData.ammoData.maxLifeTime;
+        currentLifeTime = maxLifeTime;
+        speed = weaponData.ammoData.speed;
+        
+    }
+    
+    public void StartAmmo()
+    {
+        StartCoroutine(Ammo());
+    }
+    
+    public void StopAmmo()
+    {
+        StopCoroutine(Ammo());
+    }
+
+    private IEnumerator Ammo()
+    {
+        fireDirection = weaponData.ammoData.attackDirection.GetValue();
+            
+        while (isFiring)
+        {
+            transform.Translate(fireDirection * (speed * Time.deltaTime));
+            currentLifeTime -= Time.deltaTime;
+            if (currentLifeTime <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+            yield return wffuObj;
+        }
+        
     }
     /*
-    public float spd;
-    private float spinSpeed;
-    private float ammoTTL;
-    private int dmgToGive;
-    private float knockStrength;
-
-    public PlayerData playerData;
-
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
-
-
-    }
-
     void Update()
     {
-        //transform.Rotate(Vector3.forward * (spinSpeed * Time.deltaTime));
         //transform.Translate(Vector3.forward * (spd * Time.deltaTime));
         //Destroy ammo after (ammoTTL) sec
         ammoTTL -= Time.deltaTime;

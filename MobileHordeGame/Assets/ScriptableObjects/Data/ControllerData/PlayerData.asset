@@ -15,7 +15,7 @@ MonoBehaviour:
   name: 
   id: {fileID: 0}
   health: 1
-  speed: 3
+  speed: 10
   damage: 1
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
   isFiring: {fileID: 11400000, guid: ea8fa9046b8dc934da8adab32ab8472f, type: 2}

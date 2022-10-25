@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu (fileName = "Vector2Data", menuName = "Data/SingleValueData/Vector2Data")]
@@ -9,4 +10,10 @@ public class Vector2Data : ScriptableObject
     {
         value = new Vector2(X, Y);
     }
+    
+    public Vector2 GetValue()
+    {
+        return value;
+    }
+    
 }
