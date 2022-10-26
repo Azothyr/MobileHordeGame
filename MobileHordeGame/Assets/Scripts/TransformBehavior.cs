@@ -19,7 +19,6 @@ public class TransformBehavior : MonoBehaviour
 
     public void StartRunSetStart()
     {
-        canRun.value = true;
         StartCoroutine(SendTransform());
     }
     

@@ -38,7 +38,10 @@ public class EnemyController : MonoBehaviour
         {
             playerLocation = enemyData.v3Position.GetValue();
             moveDirection = new Vector2(playerLocation.x, playerLocation.y);
-            enemyRB.MovePosition(enemyRB.position + moveDirection * (speed * Time.deltaTime));
+            transform.LookAt(moveDirection);
+            enemyRB.velocity = (transform.forward.normalized * (speed * Time.deltaTime));
+            //transform.Translate(moveDirection * (speed * Time.deltaTime));
+            //enemyRB.MovePosition(enemyRB.position + moveDirection * (speed * Time.deltaTime));
             if (health <= 0)
             {
                 Destroy(gameObject);
