@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Enemy1
   id: {fileID: 0}
   health: 1
-  speed: 1
+  speed: 3
   damage: 1
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
   isFiring: {fileID: 11400000, guid: 80e7038b91c95a8489e691d31b497857, type: 2}

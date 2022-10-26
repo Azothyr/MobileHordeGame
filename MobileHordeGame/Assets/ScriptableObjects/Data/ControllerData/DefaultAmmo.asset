@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 237891397973152735, guid: fb91be28a66ccf9409cb21613b1f5da2, type: 3}
   rangedAmmo: 1
-  speed: 1
+  speed: 5
   damage: 1
   currentLifeTime: 0
   maxLifeTime: 3
-  fireRate: 1
+  fireRate: 0.2
   fireTimer: 1
+  knockBackPower: 0
   attackDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}
   playerLocation: {fileID: 11400000, guid: abde00aac6165124693296a5b3cfdfa5, type: 2}

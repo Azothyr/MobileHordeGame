@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     private InputActions inputActions;
     private Vector2 inputMoveVector;
     private Vector2 inputAimVector;
-    
-    private WaitForFixedUpdate wffuObj;
+
+    private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
     private void Awake()
     {

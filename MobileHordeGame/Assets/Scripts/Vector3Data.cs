@@ -8,4 +8,9 @@ public class Vector3Data : ScriptableObject
     {
         value = new Vector3(X, Y, Z);
     }
+    
+    public Vector3 GetValue()
+    {
+        return value;
+    }
 }

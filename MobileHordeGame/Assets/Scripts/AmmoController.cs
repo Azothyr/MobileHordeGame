@@ -5,6 +5,7 @@ using UnityEngine;
 public class AmmoController : MonoBehaviour
 {
     public WeaponData weaponData;
+    public Vector3Data playerV3;
 
     private bool isFiring;
     private float currentLifeTime;
@@ -12,12 +13,12 @@ public class AmmoController : MonoBehaviour
     private float speed;
     private Vector2 inputFireDirection;
     private Vector2 fireDirection;
+    private Vector3 playerLocation;
     
-    private WaitForFixedUpdate wffuObj;
+    private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
     private void Awake()
     {
-        wffuObj = new WaitForFixedUpdate();
         isFiring = weaponData.isFiring;
         maxLifeTime = weaponData.ammoData.maxLifeTime;
         currentLifeTime = maxLifeTime;
@@ -41,7 +42,6 @@ public class AmmoController : MonoBehaviour
             
         while (isFiring)
         {
-            Debug.Log(fireDirection);
             transform.Translate(fireDirection * (speed * Time.deltaTime));
             currentLifeTime -= Time.deltaTime;
             if (currentLifeTime <= 0)
@@ -54,29 +54,20 @@ public class AmmoController : MonoBehaviour
         
     }
     /*
-    void Update()
-    {
-        //transform.Translate(Vector3.forward * (spd * Time.deltaTime));
-        //Destroy ammo after (ammoTTL) sec
-        ammoTTL -= Time.deltaTime;
-        if (ammoTTL <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
     private void OnCollisionEnter(Collision other)
     {
-        //Destroy Karen on hit
+        
         if (other.gameObject.CompareTag("Karen"))
         {
+            playerLocation = Vector3Data.GetValue();
             other.gameObject.GetComponent<EnemyController>().DmgEnemy(dmgToGive);
             
             Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
-            Vector3 awayFromPlayer = other.gameObject.transform.position - player.transform.position;
+            Vector3 awayFromPlayer = other.gameObject.transform.position - playerLocation;
             enemyRigidbody.AddForce(awayFromPlayer * knockStrength, ForceMode.Force);
             
             Destroy(gameObject);
         }
     }
-*/
+    */
 }

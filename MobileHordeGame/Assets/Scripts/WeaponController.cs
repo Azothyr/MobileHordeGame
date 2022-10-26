@@ -15,11 +15,10 @@ public class WeaponController : MonoBehaviour
     private float fireRate;
     private float fireTimer;
 
-    private WaitForFixedUpdate wffuObj;
+    private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
     private void Awake()
     {
-        wffuObj = new WaitForFixedUpdate();
         rangeCheck = weaponData.rangedWeaponCheck;
         canFire = weaponData.isFiring.value;
         objPrefab = weaponData.prefab;
