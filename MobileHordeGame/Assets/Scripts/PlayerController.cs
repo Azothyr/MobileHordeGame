@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     private InputActions inputActions;
     private Vector2 inputMoveVector;
     private Vector2 inputAimVector;
+    private Vector2 currentLocation;
 
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        
         
         inputActions = new InputActions();
         
@@ -58,7 +60,9 @@ public class PlayerController : MonoBehaviour
     {
         while (playerData.canRun.value)
         {
-            playerRB.MovePosition(playerRB.position + inputMoveVector * (playerData.speed * Time.deltaTime));
+            currentLocation = playerRB.position;
+            playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
+            playerRB.MovePosition(currentLocation + inputMoveVector * (playerData.speed * Time.deltaTime));
             yield return wffuObj;
         }
     }
