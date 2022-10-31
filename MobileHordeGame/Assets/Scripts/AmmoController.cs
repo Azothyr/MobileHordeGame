@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AmmoController : MonoBehaviour
 {
-    public CharacterData playerData;
+    public PlayerData playerData;
 
     private bool isFiring;
     private bool piercing= false; 
@@ -11,7 +11,7 @@ public class AmmoController : MonoBehaviour
     private float maxLifeTime;
     private float speed;
     private float damage;
-    private float knockBack = .01f;
+    //private float knockBack = .01f;
     private Vector2 inputFireDirection;
     private Vector2 fireDirection;
     private Vector3 playerLocation;

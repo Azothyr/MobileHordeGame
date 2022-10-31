@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu (fileName = "CharacterData", menuName = "Data/ControllerData/CharacterData")]
+[CreateAssetMenu (fileName = "CharacterData", menuName = "Data/ControllerData/CharacterData/CharacterData")]
 
 public class CharacterData : ScriptableObject
 {
@@ -8,7 +8,5 @@ public class CharacterData : ScriptableObject
     public ID id;
     public float health, speed, damage;
     public WeaponData weaponData;
-    public BoolData canRun, isFiring;
-    public Vector2Data aimDirection;
-    public Vector3Data v3Position;
+    public BoolData canRun;
 }

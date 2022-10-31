@@ -9,16 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44fdc0a6c26ea674882f9d0481224fee, type: 3}
-  m_Name: Enemy1Data
+  m_Script: {fileID: 11500000, guid: ed5a2ae5694f25e418733b8f3592c7c8, type: 3}
+  m_Name: DefaultEnemyData
   m_EditorClassIdentifier: 
-  name: Enemy1
+  name: DefaultEnemy
   id: {fileID: 11400000, guid: 39f283e48d8917541a3d3f9ced6bce26, type: 2}
-  health: 10
+  health: 3
   speed: 1
   damage: 1
   weaponData: {fileID: 0}
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
-  isFiring: {fileID: 11400000, guid: 80e7038b91c95a8489e691d31b497857, type: 2}
-  aimDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}
-  v3Position: {fileID: 0}
+  prefab: {fileID: 3847694789785763768, guid: afb6050833c2eb34e885dd86001862bc, type: 3}

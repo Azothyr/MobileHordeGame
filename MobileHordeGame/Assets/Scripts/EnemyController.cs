@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 playerLocation;
     
 
-    public CharacterData enemyData;
+    public EnemyData enemyData;
     public Rigidbody2D enemyRB;
     public NavAgentBehaviour navAgentBehaviour;
     

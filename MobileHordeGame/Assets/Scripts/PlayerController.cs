@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterData playerData;
+    public PlayerData playerData;
     public Rigidbody2D playerRB;
 
     private InputActions inputActions;

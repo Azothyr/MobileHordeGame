@@ -136,8 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90e4cdf845d4ff429959be44ad369d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ffb29736f7ddfc24290a25110f5a31ba, type: 2}
-  navAgentBehaviour: {fileID: 0}
+  health: 0
+  enemyData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
+  enemyRB: {fileID: 8177545451808122132}
+  navAgentBehaviour: {fileID: 3847694789785763762}
 --- !u!50 &8177545451808122132
 Rigidbody2D:
   serializedVersion: 4
