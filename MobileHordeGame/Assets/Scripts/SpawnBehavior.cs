@@ -9,7 +9,7 @@ public class SpawnBehavior : MonoBehaviour
     public BoolData canRun;
     public FloatData time;
     public IntData spawnCount, enemiesAlive;
-    public float distanceMin, distanceMax, seconds;
+    public float distanceMin, distanceMax, spawnDelay;
     
     public GameObject prefab;
 
@@ -21,7 +21,7 @@ public class SpawnBehavior : MonoBehaviour
 
     private void Awake()
     {
-        wfsObj = new WaitForSeconds(seconds);
+        wfsObj = new WaitForSeconds(spawnDelay);
         spawnCount.value = 5;
     }
 

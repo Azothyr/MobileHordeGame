@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   name: 
-  id: {fileID: 0}
+  id: {fileID: 11400000, guid: 3987f71a6c4d6d6409289705d4f2df4b, type: 2}
   health: 1
   speed: 3
   damage: 1
+  weaponData: {fileID: 11400000, guid: 5a534cb86cf4ec5408d3bb7fe63b6432, type: 2}
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
   isFiring: {fileID: 11400000, guid: ea8fa9046b8dc934da8adab32ab8472f, type: 2}
   aimDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}

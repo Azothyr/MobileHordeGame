@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class AmmoController : MonoBehaviour
 {
-    public WeaponData weaponData;
-    public Vector3Data playerV3;
+    public CharacterData playerData;
 
     private bool isFiring;
+    private bool piercing= false; 
     private float currentLifeTime;
     private float maxLifeTime;
     private float speed;
+    private float damage;
+    private float knockBack = .01f;
     private Vector2 inputFireDirection;
     private Vector2 fireDirection;
     private Vector3 playerLocation;
@@ -18,10 +20,11 @@ public class AmmoController : MonoBehaviour
 
     private void Awake()
     {
-        isFiring = weaponData.isFiring;
-        maxLifeTime = weaponData.ammoData.maxLifeTime;
+        isFiring = playerData.weaponData.isFiring;
+        maxLifeTime = playerData.weaponData.ammoData.maxLifeTime;
         currentLifeTime = maxLifeTime;
-        speed = weaponData.ammoData.speed;
+        speed = playerData.weaponData.ammoData.speed;
+        damage = playerData.weaponData.ammoData.damage;
         StartAmmoCheck();
     }
     
@@ -37,7 +40,7 @@ public class AmmoController : MonoBehaviour
 
     private IEnumerator Ammo()
     {
-        fireDirection = weaponData.ammoData.attackDirection.GetValue();
+        fireDirection = playerData.weaponData.ammoData.attackDirection.GetValue();
             
         while (isFiring)
         {
@@ -47,26 +50,27 @@ public class AmmoController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
+            
             yield return wffuObj;
         }
-        
     }
-    /*
-    private void OnCollisionEnter(Collision other)
+    
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (other.gameObject.CompareTag("Karen"))
+        EnemyController enemy = other.GetComponent<EnemyController>();
+        if (enemy != null)
         {
-            playerLocation = Vector3Data.GetValue();
-            other.gameObject.GetComponent<EnemyController>().DmgEnemy(dmgToGive);
+            //playerLocation = playerData.v3Position.value;
             
-            Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
-            Vector3 awayFromPlayer = other.gameObject.transform.position - playerLocation;
-            enemyRigidbody.AddForce(awayFromPlayer * knockStrength, ForceMode.Force);
+            enemy.DamageEnemy(damage);
             
-            Destroy(gameObject);
+            /*Vector2 awayFromPlayer = (other.transform.position - playerLocation).normalized;
+            enemy.enemyRB.AddForce(awayFromPlayer * knockBack, ForceMode2D.Impulse);*/
+            
+            if (!piercing)
+            {
+                Destroy(gameObject);
+            }
         }
     }
-    */
 }

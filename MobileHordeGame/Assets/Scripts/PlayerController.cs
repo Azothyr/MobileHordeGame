@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -7,12 +8,16 @@ public class PlayerController : MonoBehaviour
     public CharacterData playerData;
     public Rigidbody2D playerRB;
 
-
     private InputActions inputActions;
     private Vector2 inputMoveVector;
     private Vector2 inputAimVector;
     private Vector2 currentLocation;
 
+    private float speed;
+    private float damage;
+    private float health;
+    private float currentHealth;
+    
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
 
     private void Awake()
@@ -29,6 +34,10 @@ public class PlayerController : MonoBehaviour
         
         inputActions.Player.Aim.performed += StartFiring;
         inputActions.Player.Aim.canceled += StopFiring;
+        
+        speed = playerData.speed;
+        damage = playerData.damage;
+        health = playerData.health;
     }
 
     private void StartFiring(InputAction.CallbackContext context)
@@ -71,6 +80,22 @@ public class PlayerController : MonoBehaviour
     {
         currentLocation = playerRB.position;
         playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
+    }
+    
+    public void DamagePlayer(float damageTaken)
+    {
+        currentHealth -= damageTaken;
+        health = currentHealth;
+        
+        if (health <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("GameOver");
     }
 }
 

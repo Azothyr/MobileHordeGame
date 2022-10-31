@@ -9,7 +9,5 @@ public class Instancer : ScriptableObject
     public void CreateInstance(Vector3Data obj)
     {
         Instantiate(prefab,obj.value, Quaternion.identity);
-        EnemyController enemy = prefab.GetComponent<EnemyController>();
-        enemy.StartPursuit();
     }
 }

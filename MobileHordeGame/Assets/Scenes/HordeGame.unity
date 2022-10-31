@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 350800336}
   - component: {fileID: 350800338}
   - component: {fileID: 350800339}
+  - component: {fileID: 350800340}
   m_Layer: 0
   m_Name: GameManagerObj
   m_TagString: Untagged
@@ -593,18 +594,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
-        m_MethodName: StartPursuit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &350800339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,6 +610,23 @@ MonoBehaviour:
   onRaiseEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &350800340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350800334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94003ffd81d8629488751d0be3317eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 0}
+  difficultyBase: {fileID: 0}
+  difficultyModifier: {fileID: 0}
+  roundBase: {fileID: 0}
+  roundModifier: {fileID: 0}
 --- !u!1 &416309746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,8 +1039,8 @@ GameObject:
   - component: {fileID: 795695525}
   - component: {fileID: 795695529}
   - component: {fileID: 795695531}
-  - component: {fileID: 795695530}
   - component: {fileID: 795695532}
+  - component: {fileID: 795695533}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1124,32 +1130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 1dd714bc4414dca458e041f7578dd8f3, type: 2}
   playerRB: {fileID: 795695531}
---- !u!61 &795695530
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795695524}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &795695531
 Rigidbody2D:
   serializedVersion: 4
@@ -1187,6 +1167,32 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!61 &795695533
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795695524}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &807230929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807230929}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 2.7, y: 1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2437,7 +2443,7 @@ MonoBehaviour:
   enemiesAlive: {fileID: 11400000, guid: f9a68ea629badff42bde40f8066b2472, type: 2}
   distanceMin: 3
   distanceMax: 6
-  seconds: 1
+  spawnDelay: 2
   prefab: {fileID: 3847694789785763768, guid: afb6050833c2eb34e885dd86001862bc, type: 3}
 --- !u!1 &1901225504
 GameObject:
