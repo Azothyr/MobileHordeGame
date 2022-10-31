@@ -15,11 +15,13 @@ public class EnemyController : MonoBehaviour
     
 
     public CharacterData enemyData;
+    private NavAgentBehaviour navAgentBehaviour;
     
     private WaitForFixedUpdate wffuObj= new WaitForFixedUpdate();
     private void Awake()
     {
         enemyRB = GetComponent<Rigidbody2D>();
+        navAgentBehaviour = GetComponent<NavAgentBehaviour>();
         speed = enemyData.speed;
         damage = enemyData.damage;
         health = enemyData.health;
@@ -35,13 +37,9 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Pursuit()
     {
         while (canRun)
-        {
-            playerLocation = enemyData.v3Position.GetValue();
-            moveDirection = new Vector2(playerLocation.x, playerLocation.y);
-            transform.LookAt(moveDirection);
-            enemyRB.velocity = (transform.forward.normalized * (speed * Time.deltaTime));
-            //transform.Translate(moveDirection * (speed * Time.deltaTime));
-            //enemyRB.MovePosition(enemyRB.position + moveDirection * (speed * Time.deltaTime));
+        { 
+            navAgentBehaviour.SetV3Value();
+            
             if (health <= 0)
             {
                 Destroy(gameObject);

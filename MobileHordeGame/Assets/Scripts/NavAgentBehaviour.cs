@@ -5,18 +5,16 @@ using UnityEngine.AI;
 public class NavAgentBehaviour : MonoBehaviour
 {
     private NavMeshAgent agent;
-    //change this later to private v
     public Vector3Data playerLoc;
-    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
     
     public void SetV3Value()
     {
         agent.destination = playerLoc.value;
     }
-
-
 }

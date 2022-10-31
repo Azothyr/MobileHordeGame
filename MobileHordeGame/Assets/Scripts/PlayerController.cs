@@ -66,5 +66,11 @@ public class PlayerController : MonoBehaviour
             yield return wffuObj;
         }
     }
+
+    public void ResetV3()
+    {
+        currentLocation = playerRB.position;
+        playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
+    }
 }
 
