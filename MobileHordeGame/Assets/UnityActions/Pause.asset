@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3d3a78f3f85c242a1e2579652fad27, type: 3}
-  m_Name: EnemyV3
+  m_Script: {fileID: 11500000, guid: 97a676b4821425548b94162938a6a73f, type: 3}
+  m_Name: Pause
   m_EditorClassIdentifier: 
-  value: {x: 0, y: 0, z: 0}

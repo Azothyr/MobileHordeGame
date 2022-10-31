@@ -14,4 +14,9 @@ public class BoolData : ScriptableObject
     {
         value = false;
     }
+
+    public bool GetValue()
+    {
+        return value;
+    }
 }

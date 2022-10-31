@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     
 
     public CharacterData enemyData;
-    private NavAgentBehaviour navAgentBehaviour;
+    public NavAgentBehaviour navAgentBehaviour;
     
     private WaitForFixedUpdate wffuObj= new WaitForFixedUpdate();
     private void Awake()
@@ -25,8 +25,12 @@ public class EnemyController : MonoBehaviour
         speed = enemyData.speed;
         damage = enemyData.damage;
         health = enemyData.health;
-        canRun = enemyData.canRun;
-        playerLocation = enemyData.v3Position.GetValue();
+        StartPursuit();
+    }
+
+    private void CanRunCheck()
+    {
+        canRun = enemyData.canRun.value;
     }
     
     public void StartPursuit()
@@ -36,17 +40,20 @@ public class EnemyController : MonoBehaviour
     
     private IEnumerator Pursuit()
     {
+        CanRunCheck();
         while (canRun)
         { 
-            navAgentBehaviour.SetV3Value();
+            navAgentBehaviour.SetV3ToPlayer();
             
             if (health <= 0)
             {
                 Destroy(gameObject);
             }
+            CanRunCheck();
             yield return wffuObj;
         }
-    }
+        navAgentBehaviour.SetToCurrentLocation();
+        }
     /*
     public void OnTriggerEnter(Collider other)
     {
