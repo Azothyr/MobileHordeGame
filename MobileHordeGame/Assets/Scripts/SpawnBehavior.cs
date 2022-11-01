@@ -22,7 +22,7 @@ public class SpawnBehavior : MonoBehaviour
     private void Awake()
     {
         wfsObj = new WaitForSeconds(spawnDelay);
-        spawnCount.value = 5;
+        spawnCount.value = 100;
     }
 
     private void CanRunCheck()
