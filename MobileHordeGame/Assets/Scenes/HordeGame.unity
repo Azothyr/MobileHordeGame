@@ -530,9 +530,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 795695534}
+        m_TargetAssemblyTypeName: TransformBehavior, Assembly-CSharp
+        m_MethodName: ResetToZero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 795695529}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: ResetV3
+        m_MethodName: SetCurrentV3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1065,6 +1077,7 @@ GameObject:
   - component: {fileID: 795695531}
   - component: {fileID: 795695532}
   - component: {fileID: 795695533}
+  - component: {fileID: 795695534}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1218,6 +1231,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &795695534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795695524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf64be1e791754f489635473fe75524f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v3Data: {fileID: 0}
+  canRun: {fileID: 0}
 --- !u!1 &807230929
 GameObject:
   m_ObjectHideFlags: 0

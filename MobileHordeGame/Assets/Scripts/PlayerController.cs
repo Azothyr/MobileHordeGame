@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -76,7 +75,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ResetV3()
+    public void SetCurrentV3()
     {
         currentLocation = playerRB.position;
         playerData.v3Position.SetValue(currentLocation.x, currentLocation.y, 0);
