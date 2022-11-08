@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 3847694789785763763}
   - component: {fileID: 3847694789785763762}
   - component: {fileID: 3847694789785763775}
-  - component: {fileID: 8177545451808122132}
   - component: {fileID: 706320347085078674}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,29 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   enemyData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
-  enemyRB: {fileID: 8177545451808122132}
+  enemyRB: {fileID: 0}
   navAgentBehaviour: {fileID: 3847694789785763762}
---- !u!50 &8177545451808122132
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3847694789785763768}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &706320347085078674
 CircleCollider2D:
   m_ObjectHideFlags: 0

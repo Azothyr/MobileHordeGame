@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 106392795}
   - component: {fileID: 106392796}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 55
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -508,7 +508,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2117528667}
         m_TargetAssemblyTypeName: TextMeshProBehavior, Assembly-CSharp
-        m_MethodName: UpdateLabel
+        m_MethodName: UpdateLabelTimeFormat
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 6893b360edc14e640a5f1e9eabb60a26, type: 2}
@@ -557,6 +557,18 @@ MonoBehaviour:
       - m_Target: {fileID: 106392796}
         m_TargetAssemblyTypeName: WeaponController, Assembly-CSharp
         m_MethodName: StartAttackCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2019755845}
+        m_TargetAssemblyTypeName: TimerBehavior, Assembly-CSharp
+        m_MethodName: StartTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -658,11 +670,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94003ffd81d8629488751d0be3317eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: {fileID: 11400000, guid: 6893b360edc14e640a5f1e9eabb60a26, type: 2}
+  timeElapsed: {fileID: 0}
   roundModifier: {fileID: 0}
   difficultyModifier: {fileID: 0}
-  difficultyBase: {fileID: 11400000, guid: e2e041eccd5dc78408b12c1d2311fef3, type: 2}
-  roundBase: {fileID: 11400000, guid: 434a74c4b15e2a04d9d83756ff7e80d5, type: 2}
+  difficultyBaseModifier: {fileID: 0}
+  roundBaseModifier: {fileID: 0}
+  round: {fileID: 0}
 --- !u!1 &416309746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1091,7 @@ GameObject:
   - component: {fileID: 795695532}
   - component: {fileID: 795695533}
   - component: {fileID: 795695534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1655,7 +1668,7 @@ GameObject:
   - component: {fileID: 911634674}
   - component: {fileID: 911634673}
   - component: {fileID: 911634672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2766,26 +2779,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019755843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da787e94a9fd854093edece8faf095e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4aef89905d114c6438c5b7701547a49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startEvent:
+  updateTextEvent:
     m_PersistentCalls:
-      m_Calls: []
-  startCountEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  repeatCountEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  endCountEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  repeatUntilFalseEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  counterNum: {fileID: 0}
-  seconds: 1
+      m_Calls:
+      - m_Target: {fileID: 2117528667}
+        m_TargetAssemblyTypeName: TextMeshProBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabelTimeFormat
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 6893b360edc14e640a5f1e9eabb60a26, type: 2}
+          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
+  timer: {fileID: 11400000, guid: 6893b360edc14e640a5f1e9eabb60a26, type: 2}
 --- !u!1 &2046760426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3174,7 +3187,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

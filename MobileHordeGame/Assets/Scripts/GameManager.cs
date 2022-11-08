@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public FloatData time;
+    public FloatData timeElapsed;
     public FloatData roundModifier;
     public FloatData difficultyModifier;
     public IntData difficultyBaseModifier;
@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-        round.value = 1;
+        round.SetValue(1);
     }
 
     private void SetDifficulty()
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void GenerateSpawnCount()
     {
-        timeDifficultyModifier = (int) (time.value / 2f);
+        timeDifficultyModifier = (int) (timeElapsed.value / 2f);
         
     }
 }
