@@ -25,11 +25,6 @@ public class EnemyController : MonoBehaviour
         health = enemyData.health;
         StartPursuit();
     }
-
-    private void CanRunCheck()
-    {
-        canRun = enemyData.canRun.value;
-    }
     
     public void StartPursuit()
     {
@@ -38,16 +33,15 @@ public class EnemyController : MonoBehaviour
     
     private IEnumerator Pursuit()
     {
-        CanRunCheck();
-        while (canRun)
+        while (enemyData.canRun.value)
         { 
             navAgentBehaviour.SetV3ToPlayer();
             
-            CanRunCheck();
             yield return wffuObj;
         }
         navAgentBehaviour.SetToCurrentLocation();
-        }
+        GameOverCheck();
+    }
     
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -63,6 +57,14 @@ public class EnemyController : MonoBehaviour
         health -= damageTaken;
 
         if (health <= 0)
+        {
+            deathEvent.Invoke();
+        }
+    }
+
+    private void GameOverCheck()
+    {
+        if (enemyData.gameOver.value)
         {
             deathEvent.Invoke();
         }

@@ -19,4 +19,5 @@ MonoBehaviour:
   damage: 1
   weaponData: {fileID: 0}
   canRun: {fileID: 11400000, guid: cd489ae78898eaf49b0d51dc4f42d3da, type: 2}
+  gameOver: {fileID: 11400000, guid: 1452df2b60c5cdf47a90c01cf298f8f8, type: 2}
   prefab: {fileID: 3847694789785763768, guid: afb6050833c2eb34e885dd86001862bc, type: 3}

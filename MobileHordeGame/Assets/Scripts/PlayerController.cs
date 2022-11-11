@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public UnityEvent deathEvent;
+    
     public PlayerData playerData;
     public Rigidbody2D playerRB;
 
@@ -43,7 +46,10 @@ public class PlayerController : MonoBehaviour
     {
         inputAimVector = context.ReadValue<Vector2>();
         playerData.aimDirection.SetValue(inputAimVector.x,inputAimVector.y);
-        playerData.isFiring.value = true;
+        if (playerData.canRun.value)
+        {
+            playerData.isFiring.value = true;
+        }
     }
 
     private void StopFiring(InputAction.CallbackContext context)
@@ -91,10 +97,11 @@ public class PlayerController : MonoBehaviour
             GameOver();
         }
     }
-
+    
     private void GameOver()
     {
-        Debug.Log("GameOver");
+        playerData.gameOver.SetTrue();
+        deathEvent.Invoke();
     }
 }
 

@@ -8,5 +8,5 @@ public class CharacterData : ScriptableObject
     public ID id;
     public float health, speed, damage;
     public WeaponData weaponData;
-    public BoolData canRun;
+    public BoolData canRun, gameOver;
 }

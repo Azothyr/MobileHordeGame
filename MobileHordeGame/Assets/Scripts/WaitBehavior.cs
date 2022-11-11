@@ -8,6 +8,7 @@ public class WaitBehavior : MonoBehaviour
     public IntData intData;
     
     private int waitAmount;
+    private WaitForSeconds wfsObj = new WaitForSeconds(1);
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
     
     public void startWaitForSecondsEvent(int seconds)
@@ -29,7 +30,7 @@ public class WaitBehavior : MonoBehaviour
             waitAmount = obj.value;
             yield return wffuObj;
         }
-        endWait.Invoke();
+        startWaitForSecondsEvent(3);
     }
     
     private IEnumerator WaitForSecondsEvent(int num)
@@ -39,9 +40,8 @@ public class WaitBehavior : MonoBehaviour
         while (waitAmount > 0)
         {
             waitAmount--;
-            yield return wffuObj;
+            yield return wfsObj;
         }
-        
         endWait.Invoke();
     }
 }

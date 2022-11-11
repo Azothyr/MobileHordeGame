@@ -12,7 +12,7 @@ public class SpawnBehavior : MonoBehaviour
     public IntData spawnCount, enemiesAlive, roundNum, roundSpawnIncrease, spawnBase, difficultySpawnModifier;
     public FloatData timeElapsed, roundSpawnModifier;
     public float distanceMin, distanceMax; 
-    public int seconds, spawnDelay;
+    public int spawnDelay;
 
     private float lowerRangeMin, upperRangeMax, lowerRangeMax, upperRangeMin, num1, num2;
     private int timeDifficultyModifier, roundModifier, count;
@@ -25,11 +25,6 @@ public class SpawnBehavior : MonoBehaviour
         wfsObj = new WaitForSeconds(spawnDelay);
     }
 
-    private void CanRunCheck()
-    {
-        canRun.GetValue();
-    }
-    
     public void StartSpawning()
     {
         GenerateSpawnCount();
@@ -86,7 +81,7 @@ public class SpawnBehavior : MonoBehaviour
     }
     private IEnumerator Spawn()
     {
-        while (spawnCount.value > 0)
+        while (canRun.value && spawnCount.value > 0)
         {
             spawnV3 = GenerateSpawnV3Value(distanceMin, distanceMax);
             spawnLocation.SetValue(spawnV3.x,spawnV3.y,spawnV3.z);

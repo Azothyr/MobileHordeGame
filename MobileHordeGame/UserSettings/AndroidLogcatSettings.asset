@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R5CR3145CNW",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 2996,
+        "processId": 21522,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,6 +30,12 @@
             "deviceId": "R5CR3145CNW",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 2996,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CR3145CNW",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21522,
             "exited": false
         }
     ],
