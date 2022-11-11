@@ -22,4 +22,9 @@ public class NavAgentBehaviour : MonoBehaviour
     {
         agent.destination = transform.position;
     }
+
+    public void SetMovementVariables(float num)
+    {
+        agent.speed = num;
+    }
 }

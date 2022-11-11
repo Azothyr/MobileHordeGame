@@ -7,14 +7,14 @@ public class EnemyController : MonoBehaviour
     public UnityEvent deathEvent;
     
     private bool canRun;
-    private float damage;
-    private float health;
+    private float damage, health, speed;
     private Vector2 moveDirection;
     private Vector3 playerLocation;
     
 
     public EnemyData enemyData;
     public NavAgentBehaviour navAgentBehaviour;
+    
     
     private WaitForFixedUpdate wffuObj= new WaitForFixedUpdate();
     private void Awake()
@@ -23,6 +23,9 @@ public class EnemyController : MonoBehaviour
         //enemyData.speed;
         damage = enemyData.damage;
         health = enemyData.health;
+        speed = enemyData.speed;
+        
+        navAgentBehaviour.SetMovementVariables(speed);
         StartPursuit();
     }
     

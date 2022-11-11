@@ -11,8 +11,7 @@ public class SpawnBehavior : MonoBehaviour
     public BoolData canRun;
     public IntData spawnCount, enemiesAlive, roundNum, roundSpawnIncrease, spawnBase, difficultySpawnModifier;
     public FloatData timeElapsed, roundSpawnModifier;
-    public float distanceMin, distanceMax; 
-    public int spawnDelay;
+    public float distanceMin, distanceMax, spawnDelay;
 
     private float lowerRangeMin, upperRangeMax, lowerRangeMax, upperRangeMin, num1, num2;
     private int timeDifficultyModifier, roundModifier, count;
