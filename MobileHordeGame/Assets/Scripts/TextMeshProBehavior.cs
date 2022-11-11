@@ -16,6 +16,11 @@ public class TextMeshProBehavior : MonoBehaviour
         startEvent.Invoke();
     }
 
+    public void UpdateLabel(string text)
+    {
+        label.text = text.ToString(CultureInfo.InvariantCulture);
+    }
+    
     public void UpdateLabel(FloatData obj)
     {
         label.text = obj.value.ToString(CultureInfo.InvariantCulture);

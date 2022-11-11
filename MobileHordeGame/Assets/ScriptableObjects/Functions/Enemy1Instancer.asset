@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d374f5daae17c6249a07ec2ca9a41481, type: 3}
-  m_Name: EnemysToSpawn
+  m_Script: {fileID: 11500000, guid: 09dd3350aa3c12b45b7f259da08e9d43, type: 3}
+  m_Name: Enemy1Instancer
   m_EditorClassIdentifier: 
-  value: 0
+  prefab: {fileID: 3847694789785763768, guid: afb6050833c2eb34e885dd86001862bc, type: 3}

@@ -1,24 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
+    public UnityEvent deathEvent;
+    
     private bool canRun;
     private float damage;
-    public float health;
+    private float health;
     private Vector2 moveDirection;
     private Vector3 playerLocation;
     
 
     public EnemyData enemyData;
-    public Rigidbody2D enemyRB;
     public NavAgentBehaviour navAgentBehaviour;
     
     private WaitForFixedUpdate wffuObj= new WaitForFixedUpdate();
     private void Awake()
     {
         navAgentBehaviour = GetComponent<NavAgentBehaviour>();
-        enemyRB = GetComponent<Rigidbody2D>();
         //enemyData.speed;
         damage = enemyData.damage;
         health = enemyData.health;
@@ -63,7 +64,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            deathEvent.Invoke();
         }
     }
 }

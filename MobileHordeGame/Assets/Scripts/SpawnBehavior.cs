@@ -1,28 +1,28 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class SpawnBehavior : MonoBehaviour
 {
+    public UnityEvent spawnEvent, endSpawnEvent;
     public Instancer instancer;
     public Vector3Data playerV3, spawnLocation;
     public BoolData canRun;
-    public FloatData time;
-    public IntData spawnCount, enemiesAlive;
-    public float distanceMin, distanceMax, spawnDelay;
-    
-    public GameObject prefab;
+    public IntData spawnCount, enemiesAlive, roundNum, roundSpawnIncrease, spawnBase, difficultySpawnModifier;
+    public FloatData timeElapsed, roundSpawnModifier;
+    public float distanceMin, distanceMax; 
+    public int seconds, spawnDelay;
 
     private float lowerRangeMin, upperRangeMax, lowerRangeMax, upperRangeMin, num1, num2;
+    private int timeDifficultyModifier, roundModifier, count;
     private Vector3 spawnV3, randomV3;
-
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
     private WaitForSeconds wfsObj;
 
     private void Awake()
     {
         wfsObj = new WaitForSeconds(spawnDelay);
-        spawnCount.value = 100;
     }
 
     private void CanRunCheck()
@@ -32,7 +32,13 @@ public class SpawnBehavior : MonoBehaviour
     
     public void StartSpawning()
     {
+        GenerateSpawnCount();
         StartCoroutine(Spawn());
+    }    
+    
+    public void StopSpawning()
+    {
+        StopCoroutine(Spawn());
     }
     
     private Vector3 GenerateSpawnV3Value(float rangeFromObjectMin, float rangeFromObjectMax)
@@ -63,21 +69,34 @@ public class SpawnBehavior : MonoBehaviour
         
         return randomV3;
     }
-    
-    private IEnumerator Spawn()
+
+    private void GenerateSpawnCount()
     {
-        while (canRun.value)
+        if (roundNum.value == 1)
         {
-            if (spawnCount.value > 0)
-            {
-                spawnV3 = GenerateSpawnV3Value(distanceMin, distanceMax);
-                spawnLocation.SetValue(spawnV3.x,spawnV3.y,spawnV3.z);
-                instancer.CreateInstance(spawnLocation);
-                
-                spawnCount.UpdateValue(-1);
-            }
-            yield return wfsObj;
+            spawnCount.SetValue(spawnBase);
+        }
+        else if (roundNum.value > 1)
+        {
+            timeDifficultyModifier = (int) ((timeElapsed.value / 60) * difficultySpawnModifier.value);
+            roundModifier = (int) ((roundNum.value * roundSpawnIncrease.value) * roundSpawnModifier.value);
+            count = spawnBase.value + timeDifficultyModifier + roundModifier;
+            spawnCount.SetValue(count);
         }
     }
-    
+    private IEnumerator Spawn()
+    {
+        while (spawnCount.value > 0)
+        {
+            spawnV3 = GenerateSpawnV3Value(distanceMin, distanceMax);
+            spawnLocation.SetValue(spawnV3.x,spawnV3.y,spawnV3.z);
+            instancer.CreateInstance(spawnLocation);
+                
+            enemiesAlive.UpdateValue(1);
+            spawnCount.UpdateValue(-1);
+            spawnEvent.Invoke();
+            yield return wfsObj;
+        }
+        endSpawnEvent.Invoke();
+    }
 }

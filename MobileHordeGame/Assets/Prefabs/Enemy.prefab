@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3847694789785763762}
   - component: {fileID: 3847694789785763775}
   - component: {fileID: 706320347085078674}
+  - component: {fileID: -4030280367841943929}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -135,9 +136,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90e4cdf845d4ff429959be44ad369d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b77bf0edc03a952448b1fded1a8859d3, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: RaiseAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -4030280367841943929}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   enemyData: {fileID: 11400000, guid: dccea9782de034948a1f47fc2798732b, type: 2}
-  enemyRB: {fileID: 0}
   navAgentBehaviour: {fileID: 3847694789785763762}
 --- !u!58 &706320347085078674
 CircleCollider2D:
@@ -155,3 +181,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-4030280367841943929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847694789785763768}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a044d84b1f53f93479080f745b1608a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 0.001

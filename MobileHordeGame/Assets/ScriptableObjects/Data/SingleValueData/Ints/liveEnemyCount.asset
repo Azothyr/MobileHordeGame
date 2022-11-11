@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d374f5daae17c6249a07ec2ca9a41481, type: 3}
-  m_Name: liveEnemyCount
+  m_Name: LiveEnemyCount
   m_EditorClassIdentifier: 
   value: 0
