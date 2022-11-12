@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
-    public UnityEvent deathEvent;
+    public UnityEvent deathEvent, gameOverEvent;
     
     private bool canRun;
     private float damage, health, speed;
@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour
     {
         if (enemyData.gameOver.value)
         {
-            deathEvent.Invoke();
+            gameOverEvent.Invoke();
         }
     }
 }

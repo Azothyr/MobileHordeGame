@@ -18,7 +18,7 @@ MonoBehaviour:
   damage: 1
   currentLifeTime: 0
   maxLifeTime: 3
-  fireRate: 0.2
+  fireRate: 0.5
   fireTimer: 1
   knockBackPower: 0
   attackDirection: {fileID: 11400000, guid: b9593542088951040ab361e342466db7, type: 2}
