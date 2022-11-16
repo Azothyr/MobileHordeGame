@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         navAgentBehaviour = GetComponent<NavAgentBehaviour>();
-        //enemyData.speed;
+        
         damage = enemyData.damage;
         health = enemyData.health;
         speed = enemyData.speed;

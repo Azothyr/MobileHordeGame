@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "R5CR3145CNW",
     "m_SelectedPackage": {
-        "deviceId": "R5CR3145CNW",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 14001,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,49 +11,31 @@
         {
             "deviceId": "R5CR3145CNW",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 28013,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 16164,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 27524,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 2996,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 21522,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 27504,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 28469,
-            "exited": false
-        },
-        {
-            "deviceId": "R5CR3145CNW",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 14001,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CR3145CNW",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 4774,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CR3145CNW",
+            "name": "com.unity3d.mobileremote",
+            "processId": 32397,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CR3145CNW",
+            "name": "com.unity3d.mobileremote",
+            "processId": 8830,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CR3145CNW",
+            "name": "com.unity3d.mobileremote",
+            "processId": 9719,
             "exited": false
         }
     ],

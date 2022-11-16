@@ -15,7 +15,7 @@ public class SpawnBehavior : MonoBehaviour
 
     private float lowerRangeMin, upperRangeMax, lowerRangeMax, upperRangeMin, num1, num2;
     private int timeDifficultyModifier, roundModifier, count;
-    private Vector3 spawnV3, randomV3;
+    private Vector3 spawnV3, randomV3, playerLoc;
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
     private WaitForSeconds wfsObj;
 
@@ -53,9 +53,10 @@ public class SpawnBehavior : MonoBehaviour
         {
             num2 = Random.Range(lowerRangeMin, upperRangeMax);
         }
+        playerV3.GetValue();
         
         num1 += playerV3.value.x;
-        num2 += playerV3.value.x;
+        num2 += playerV3.value.y;
         randomV3 = new Vector3(num1,num2,0);
 
         num1 = new float();
