@@ -4,9 +4,9 @@ using UnityEngine.Events;
 
 public class WaitBehavior : MonoBehaviour
 {
-    public UnityEvent endWait;
+    public UnityEvent endWaitForSeconds, endWaitForZero;
     public IntData intData;
-    
+
     private int waitAmount;
     private WaitForSeconds wfsObj = new WaitForSeconds(1);
     private WaitForFixedUpdate wffuObj = new WaitForFixedUpdate();
@@ -15,7 +15,7 @@ public class WaitBehavior : MonoBehaviour
     {
         StartCoroutine(WaitForSecondsEvent(seconds));
     }
-    
+
     public void startWaitForZeroIntDataEvent()
     {
         StartCoroutine(WaitForZeroIntDataEvent(intData));
@@ -30,7 +30,7 @@ public class WaitBehavior : MonoBehaviour
             waitAmount = obj.value;
             yield return wffuObj;
         }
-        startWaitForSecondsEvent(3);
+        endWaitForZero.Invoke();
     }
     
     private IEnumerator WaitForSecondsEvent(int num)
@@ -42,6 +42,6 @@ public class WaitBehavior : MonoBehaviour
             waitAmount--;
             yield return wfsObj;
         }
-        endWait.Invoke();
+        endWaitForSeconds.Invoke();
     }
 }
