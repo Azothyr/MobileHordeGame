@@ -175,18 +175,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ca98b63ad1379904cae0badf6a2d6b59, type: 2}
-        m_TargetAssemblyTypeName: Debugger, Assembly-CSharp
-        m_MethodName: OnDebug
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Remove 1 from Remaining
-          m_BoolArgument: 1
-        m_CallState: 2
   gameOverEvent:
     m_PersistentCalls:
       m_Calls:

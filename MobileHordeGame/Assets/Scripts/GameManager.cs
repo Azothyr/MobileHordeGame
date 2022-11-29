@@ -1,20 +1,28 @@
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public void GameStart()
+    public UnityEvent startGameEvent, pauseGameEvent, gameOverEvent, restartGameEvent;
+
+    public void StartGame()
     {
-        
+        startGameEvent.Invoke();
     }
 
-    private void SetDifficulty()
+    public void PauseGame()
     {
-        
+        pauseGameEvent.Invoke();
     }
-    
+
+    public void GameOver()
+    {
+        gameOverEvent.Invoke();
+    }
+
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        restartGameEvent.Invoke();
     }
 }
