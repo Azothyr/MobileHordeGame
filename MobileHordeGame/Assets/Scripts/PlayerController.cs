@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         
         
+        speed = playerData.speed;
+        damage = playerData.damage;
+        health = playerData.health;
+    }
+    
+    private void OnEnable()
+    {
         inputActions = new InputActions();
         
         inputActions.Player.Enable();
@@ -36,10 +43,17 @@ public class PlayerController : MonoBehaviour
         
         inputActions.Player.Aim.performed += StartFiring;
         inputActions.Player.Aim.canceled += StopFiring;
+    }
+    
+    private void OnDisable()
+    {
+        inputActions.Player.Move.performed -= StartMove;
+        inputActions.Player.Move.canceled -= StopMove;
         
-        speed = playerData.speed;
-        damage = playerData.damage;
-        health = playerData.health;
+        inputActions.Player.Aim.performed -= StartFiring;
+        inputActions.Player.Aim.canceled -= StopFiring;
+        
+        inputActions.Player.Disable();
     }
 
     private void StartFiring(InputAction.CallbackContext context)
