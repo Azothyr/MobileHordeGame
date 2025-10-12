@@ -141,9 +141,11 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.0.2
+  bundleVersion: 1.0.3
   preloadedAssets:
   - {fileID: 11400000, guid: 270abd37c55bdc14d97cf9e2f88a751e, type: 2}
+  - {fileID: 11400000, guid: b4715b2d92c50374a874f7ac5f852132, type: 2}
+  - {fileID: -6701958559951892585, guid: ed1246472677a1d4b98b5b8ac57f17f3, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -270,7 +272,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 2
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: Keystore/user.keystore'
+  AndroidKeystoreName: C:/Users/Demon/OneDrive/Zac/Profession/Projects/Game/GameAssets/MobileHordeGame/Keystore/user.keystore
   AndroidKeyaliasName: hoodknight
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0
